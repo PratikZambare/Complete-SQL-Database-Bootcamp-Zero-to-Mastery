@@ -26,6 +26,16 @@ GROUP BY e.emp_no
 HAVING count(s.from_date) > 15
 ORDER BY e.emp_no;
 
+-----------------------------------------------------
+select e.emp_no,(s.from_date) as "Amount of rises"from employees as e
+join salaries as s using(emp_no)
+join dept_emp as de using(emp_no)
+join departments as d using(dept_no)
+where dept_name = 'Development'
+group by emp_no
+having count(s.from_date) > 15
+order by emp_no;
+
 /*
 *  Show me all the employees that have worked for multiple departments
 *  Database: Employees
